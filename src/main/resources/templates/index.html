@@ -1,0 +1,525 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>工业产线自动监测系统</title>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"></meta>
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.responsive.css"></link>
+	<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="/vendor/linearicons/style.css"></link>
+	<link rel="stylesheet" href="/vendor/chartist/css/chartist-custom.css"></link>
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-table.css"></link>
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-table.min.css"></link>
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="/css/main.css"></link>
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="/css/demo.css"></link>
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"></link>
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png"></link>
+	<link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png"></link>
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR 顶部菜单-->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></img></a>
+			</div>
+			<div class="title">
+				<h1 class="weekly-summary text-center">工业产线自动监测系统</h1>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR 左侧菜单 -->
+		<div id="sidebar-nav" class="sidebar jsc-sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="index.html" class="active"><i class="fa fa-home"></i> <span>统计信息</span></a></li>
+						<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
+						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
+						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT  -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<!-- OVERVIEW  -->
+					<div class="row">
+						<div class="col-md-20">
+							<!-- Total Acount统计部分  -->
+							
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="weekly-summary text-center"> 每日统计数据 </h3>
+									<div class="right">
+										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up "></i></button>
+
+									</div>
+								</div>
+								<div class="panel-body no-padding">
+									<table id="tableAccount" class="table table-hover" 
+											data-pagination="true"  
+											data-show-refresh="true"  
+											data-show-toggle="true"  
+											data-showColumns="true">
+										<thead>
+											<tr>
+												<th data-field="factoryName" data-sortable="true">工厂table-striped</th>
+												<th data-field="opcAddress">OPC服务器</th>
+												<th data-field="groupName">分组</th>
+												<th data-field="itemName">设备端口</th>
+												<th data-field="time">时间</th>
+												<th data-field="dataAcount">数据总量</th>
+												<th data-field="maxValue">最大值</th>
+												<th data-field="minValue">最小值</th>
+												<th data-field="avagValue">平均值</th>
+												<th data-field="statuts">状态</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span class="number" th:text="${factoryName}"></span></td>
+												<td><span class="number" th:text="${factoryName}"></span></td>
+												<td>$122</td>
+												<td>Oct 21, 2016</td>
+												<td><span class="label label-success">COMPLETED</span></td>
+											</tr>
+											<tr>
+												<td><span>th:text="${factoryName}</span></td>
+												<td>Amber</td>
+												<td>$62</td>
+												<td>Oct 21, 2016</td>
+												<td><span class="label label-warning">PENDING</span></td>
+											</tr>
+											<tr>
+												<td><a href="#">763650</a></td>
+												<td>Michael</td>
+												<td>$34</td>
+												<td>Oct 18, 2016</td>
+												<td><span class="label label-danger">FAILED</span></td>
+											</tr>
+											<tr>
+												<td><a href="#">763651</a></td>
+												<td>Roger</td>
+												<td>$186</td>
+												<td>Oct 17, 2016</td>
+												<td><span class="label label-success">SUCCESS</span></td>
+											</tr>
+											<tr>
+												<td><a href="#">763652</a></td>
+												<td>Smith</td>
+												<td>$362</td>
+												<td>Oct 16, 2016</td>
+												<td><span class="label label-success">SUCCESS</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Last 24 hours</span></div>
+										<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">查看所有数据</a></div>
+									</div>
+								</div>
+							</div>
+							<!-- END Total Acount -->
+						</div>
+					</div>
+					<div class="panel panel-headline">
+						<div class="panel-body">
+						<!-- 统计数据部分 recvdata  -->
+						<!-- <div class="row">
+								<div class="col-md-2">
+									<div class="metric text-center">
+										<span class="icon"><i class="fa fa-download"></i></span>
+										<span class="title">工厂：</span>
+										<span class="number" th:text="${factoryName}"></span>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="metric text-center">
+										<span class="icon"><i class="fa fa-shopping-bag"></i></span>
+										<span class="title">OPC服务器:</span>
+										<span class="number" th:text="${lineName}"></span>
+									</div>
+								</div>
+								<div class="col-md-2 text-center">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-eye"></i></span>
+										<span class="title">分组：</span>
+										<span class="number" th:text="${machineName}"></span>
+									</div>
+								</div>
+								<div class="col-md-2 text-center">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-bar-chart"></i></span>
+										<span class="title">数据量：</span>
+										<span class="number" th:text="${dataCount}"></span>
+									</div>
+								</div>
+							</div> 
+							-->
+						<!-- 实时图表部分 recvdata 
+							<div class="panel-heading">
+							<h3 class="panel-title">实时信息</h3>
+						</div>					
+						-->	
+							<div class="row-md-16">
+							
+							<a  class="btn btn-success" onclick="starDynGraph()" id="btnDynaGraph"> <i class="fa fa-rocket"></i>启动实时监测</a>
+							<h3 class="weekly-summary text-center" id="realTime"> 实时数据 <a id="timeNow"></a></h3>
+								
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<div class="weekly-summary text-left" >
+										<span class="info-label" >平均值</span><span class="number" id="pavg">2,315</span> 
+									</div>
+									<div class="weekly-summary text-left">
+										<span class="info-label">最大值</span>	<span class="number" id="pmax">5,758</span> 	
+									</div>
+									<div class="weekly-summary text-left">
+										<span class="info-label">最小值</span>	<span class="number" id="pmin" >65,938</span>	
+									</div>
+									<div class="weekly-summary text-left">
+										<span class="info-label">数据量</span> <span class="number" id="pnum" >65,938</span>	
+									</div>
+								</div>
+								<!-- 实时绘图 recvdata <div id="headline-chart" class="ct-chart"></div> -->	
+								<div class="col-md-11">
+									<div id="chartSync" class="ct-chart"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+						
+					<!-- END OVERVIEW -->
+					<!-- REALTIME CHART -->
+					<!-- END REALTIME CHART -->
+				</div><!-- END MAIN CONTAINER-FLUID  -->
+			</div><!-- END MAIN CONTENT -->
+		</div><!-- END MAIN -->
+	</div><!-- END WRAPPER -->
+
+	<!-- Javascript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="/vendor/chartist/js/chartist.min.js"></script>
+	<script src="/scripts/klorofil-common.js"></script>
+	<script src="/scripts/sockjs.min.js"></script>
+	<script src="/scripts/stomp.js"></script>
+	<script src="/vendor/chartist/js/bootstrap-table.js" ></script>
+	<script src="/vendor/chartist/js/bootstrap-table-zh-CN.js"></script>
+	
+	<script>
+		//绘图区域
+		var grph=new Chartist.Line('#chartSync', data, options);
+		//曲线长度
+		var graphLen=30;
+		//曲线数据
+		var data={labels:[],series:[]};
+		//曲线参数
+		var options = {
+			height: 500,
+			showArea:false,
+			showLine: true,
+			showPoint: true,
+			showLabel: true,
+			fullWidth: true,
+			axisX: {
+				showGrid: true
+			},
+			lineSmooth: true,
+		};
+		//绘图数据
+		data.labels=new Array(graphLen);
+		data.series[0]=new Array(graphLen);
+		data.series[1]=new Array(graphLen);
+		data.series[2]=new Array(graphLen);
+		data.series[3]=new Array(graphLen);
+		//刷新时间
+		var  interval = 1000;
+		//获取服务器数据格式
+		var param ={"responseMessage":'msg',"data1":[],"data2":[],
+					"data3":[],"data4":[]};
+		//接收服务器广播数据缓存			
+		var  data1=new Array(graphLen);
+		var  data2=new Array(graphLen);
+		var  data3=new Array(graphLen);
+		var  data4=new Array(graphLen);
+		var  timeNow;
+		//socket客户端
+		var socket = new SockJS('/endpointSync');
+
+		//临时统计
+		var maxData=0;
+		var minData=0;
+		var avgData=0;
+		var number=0;
+		var sum=0;
+		var ifconnect=-1;
+		var stompClient = Stomp.over(socket);
+		connect();
+		function connect(){
+			stompClient.connect({}, function(frame) { 
+				console.log('Connected'+frame);  
+				stompClient.subscribe("/topic/responseData", handleSpittle); // highlight.  
+			}); 
+		}
+		function handleSpittle(incoming) { 
+			var myobj=eval('('+incoming.body+')');  
+			data1=myobj.data1;
+			data2=myobj.data2;
+			data3=myobj.data3;
+			data4=myobj.data4;
+			timeNow=myobj.responseMessage;
+			catString(data.series[0], data1);
+			catString(data.series[1], data2);
+			catString(data.series[2], data3);
+			catString(data.series[3], data4);
+			grph=new Chartist.Line('#chartSync', data, options);
+		};
+	//从接受数组中读一个进入目标数组
+	//有bug
+	function catString(destString,orgString){
+		var item=orgString.slice(0,1);
+		var a=0;
+		var b="";
+		while (data1.length >0 || data2.length >0 || 
+				data.series[2].length >0 || data4.length >0){
+			a=data.series[0].shift();
+			destString
+			
+		
+		}
+		Array.prototype.push.apply(destString, orgString);
+		while (destString.length > graphLen){
+			destString.shift();	
+		}
+		//坐标轴
+		if (number % 4 ==0){
+			item[0]=timeNow.slice(-8);
+			Array.prototype.push.apply(data.labels, item);
+			data.labels.shift();
+		}
+		
+		if (isNaN(a)){
+			a=0;
+		}
+		sum=sum+a;
+		number=number+1;
+		if (a < minData){
+			minData=a;
+		}
+		if (a> maxData){
+			maxData=a;
+		}
+		avgData=(sum)/number;
+		document.getElementById("pavg").innerHTML = avgData.toFixed(3);
+		document.getElementById("pmin").innerHTML = minData.toFixed(3);
+		document.getElementById("pmax").innerHTML = maxData.toFixed(3);
+		document.getElementById("pnum").innerHTML= number.toFixed(0);
+		document.getElementById("timeNow").innerHTML=timeNow ;
+
+	}
+	<!--BEGIN OF DYNA GRAPH 动态图表 -->
+	function starDynGraph(){
+		var objectBtn = document.getElementById("btnDynaGraph");
+		var url="/app/endpointSync";
+		param.interval=interval;
+		if (interval>0){
+			stompClient.send(url, {},JSON.stringify(param));// JSON.stringify(param));
+			objectBtn.innerHTML ='<i class="fa fa-rocket"></i>停止实时监测';
+			interval =-interval;
+			}
+		else{
+			stompClient.send(url, {}, JSON.stringify(param));
+			//disconnect();
+			//ifconnect=-1;
+			objectBtn.innerHTML ='<i class="fa fa-rocket"></i>启动实时监测';
+			interval=-interval;
+			clearArray();
+		}
+	}  
+	function clearArray(){
+		data.labels=new Array(graphLen);
+		data.series[0]=new Array(graphLen);
+		data.series[1]=new Array(graphLen);
+		data.series[2]=new Array(graphLen);
+		data.series[3]=new Array(graphLen);
+	}
+    function setConnected(connected) {
+        $("#response").innerHTML=connected;
+    }
+	 function disconnect() {
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+        setConnected(false);
+        console.log('Disconnected');
+    }
+    function showResponse(message) { 
+        $("#response").html(message);
+    }
+
+	<!--END OF CHART FUNCTION -->
+
+	<!-- BEGIN OF STATIC TABLE 静态表格部分-->
+	$(function () {  
+   
+    //1.初始化Table  
+    initTable();  
+
+  });  
+	function initTable() {  
+        //先销毁表格  
+        $('#tableAccount').bootstrapTable('destroy');  	
+		$('#tableAccount').bootstrapTable({   
+		method: 'post',
+		contentType:"application/x-www-form-urlencoded",
+        url: "/GetDataStaticAccount",  
+        cache: false,  
+        //height: $(window).height() - 800,  
+        striped: true,  
+        pagination: false,  
+        pageSize: 20,  
+        pageList: [5, 10, 15, 20, 25],  
+        search: false,  
+        showColumns: false,  
+        showRefresh: true,  
+        minimumCountColumns: 2,  
+        clickToSelect: false,  
+		sidePagination: "client",		
+        dataType: "json",  
+		silent: true,  //刷新事件必须设置  
+		formatLoadingMessage: function () {  
+			return "请稍等，正在加载中...";  
+		},  
+		formatNoMatches: function () {  //没有匹配的结果  
+			return '无符合条件的记录';  
+		},  
+        queryParams:function (e) {  
+            var param = {  
+                timeInterval: 'Day',
+            };  
+            return param;  
+        },  
+
+        columns: [{
+			field: 'factoryName',
+			title: '工厂',
+            align:'center',
+			width: 30,
+            valign:'middle',
+			sortable:true
+			}, {
+			field: 'opcAddress',
+			title: 'OPC服务器',
+            align:'center',
+			width: 30,
+            valign:'middle'
+			}, {
+			field: 'groupName',
+			title: '分组',
+			width: 30,
+            align:'center',
+            valign:'top'
+			}, {
+			field: 'itemName',
+			title: '设备端口',
+			width: 20,
+            align:'center',
+            valign:'top'
+			},{
+			field: 'time',
+			title: '时间',
+			width: 40,
+            align:'center',
+            valign:'top'
+			},{
+			field: 'dataAccount',
+			title: '数据总量',
+			width: 30,
+            align:'center',
+            valign:'top'
+			},{
+			field: 'maxData',
+			title: '最大值',
+			width: 30,
+            align:'center',
+            valign:'top',
+			},{
+			field: 'minData',
+			title: '最小值',
+			width: 30,
+            align:'center',
+            valign:'top'
+			},{
+			field: 'avgData',
+			title: '平均值',
+			width: 30,
+            align:'center',
+            valign:'top'
+			},{
+			field: 'sumData',
+			title: '总合',
+			width: 30,
+            align:'center',
+            valign:'top'
+			},{
+			field: 'statuts',
+			title: '状态',
+			width: 20,
+            align:'center',
+            valign:'top',
+			formatter: function(value,row,index) {  
+            //通过判断单元格的值，来格式化单元格，返回的值即为格式化后包含的元素  
+            var a = ""; 
+                if(value == "正常") {  
+                    var a = '<span class="label label-success">正常</span>';  
+                }else if(value == "警告"){  
+                    var a = '<span class="label label-warning">警告</span>';  
+                }else if(value == "危险") {  
+                    var a = '<span class="label label-danger">危险</span>';  
+                }else{  
+                    var a = '<span class="label label-danger">未知状态</span>';  
+                }  
+                return a;  
+        }  
+			},]  
+	});
+};
+	</script>	
+</body>
+
+</html>

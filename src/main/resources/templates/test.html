@@ -1,0 +1,70 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+	<title>工业产线自动监测系统</title>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"></meta>
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" href="/vendor/linearicons/style.css"></link>
+	<link rel="stylesheet" href="/vendor/chartist/css/chartist-custom.css"></link>
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="/css/main.css"></link>
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="/css/demo.css"></link>
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"></link>
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png"></link>
+	<link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png"></link>
+</head>
+		<div class="col-md-9">
+			<div id="mychart" class="ct-chart"></div>
+		</div>
+<body>
+	
+	
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="/vendor/chartist/js/chartist.min.js"></script>
+	<script src="/scripts/klorofil-common.js"></script>
+	<script src="/scripts/sockjs.min.js"></script>
+	<script src="/scripts/stomp.js"></script>
+	
+	<script>
+	
+	var data, options;
+		// headline charts
+		data = {
+			labels: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
+			series: [
+				[23, 29, 24, 40, 25, 24, 35],
+				[14, 25, 18, 34, 29, 38, 44],
+			]
+		};
+
+		options = {
+			height: 300,
+			showArea: true,
+			showLine: true,
+			showPoint: true,
+			fullWidth: true,
+			axisX: {
+				showGrid: false
+			},
+			lineSmooth: false,
+		};
+
+		new Chartist.Line('#mychart', data, options);
+	</script>	
+</body>
+
+</html>
